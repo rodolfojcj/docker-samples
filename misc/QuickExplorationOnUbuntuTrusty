@@ -1,0 +1,18 @@
+# Generic image for quick exploration tasks based on Ubuntu Trusty
+FROM ubuntu:trusty
+MAINTAINER Rodolfo Castellanos
+#
+RUN rm -f /etc/apt/apt.conf.d/docker-clean
+RUN apt-get update
+RUN apt-get install --yes vim tree aptitude bash-completion screen
+#
+CMD ["/bin/bash"]
+#
+# Some options to create images from this Dockerfile are:
+# a) save it with the name Dockerfile and run these commands in a shell:
+# cd ~/directory-where-Dockerfile-was-created
+# docker build --tag acmeorg/explorationimg .
+# b) save it with another name, like QuickExplorationOnUbuntuTrusty, and run these commands
+# in a shell:
+# cd ~/directory-where-quick-dockerfile-was-created
+# docker build --tag acmeorg/explorationimg --file QuickExplorationOnUbuntuTrusty . 
